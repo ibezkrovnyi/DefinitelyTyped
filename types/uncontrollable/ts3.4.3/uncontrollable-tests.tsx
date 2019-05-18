@@ -69,9 +69,16 @@ class Component extends React.Component<ComponentProps> {
 
   // No errors
   {
-    // TODO: not ready
     const ok = <UncontrollableComponent onTimeChange={() => { }} time="1" ref={ref => {
+      if (!ref) return;
       ref.setState({});
+
+      // TODO: Should be no error, to fix it Uncontrollable should return ComponentClass that creates
+      // `React.Component<...> extends { [K in Methods]: something }`,
+      // but TypeScript doesn't allow to extend from type with statically unknown properties.
+      // It is possible to achieve similar result by intersection Component & MappedType, but
+      // in such case 'ref' property of the React.Component should also be changed to return this intersection
+      // So, React.Component should be copy-pasted from react.d.ts and its API should be tweaked.
       ref.funcProp();
       ref.method();
     }} />;

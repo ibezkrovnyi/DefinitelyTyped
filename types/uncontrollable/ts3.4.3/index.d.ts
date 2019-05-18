@@ -31,20 +31,16 @@ type AreSame<A, B> = A extends B
   ? B extends A ? true : false
   : false;
 
-type Exact<A, B> = AreSame<A, B> extends true ? B : never;
-
 declare function uncontrollable<
   C extends ClassComponentJSXElementConstructor,
   H extends Partial<{ [K in keyof H]: K extends keyof P ? keyof P : never }>,
   M extends FunctionProperties<I>[],
   I extends object = InstanceType<C>,
   P = React.ComponentProps<C>,
-  UP = UncontrollableProps<P, H>,
-  R = React.ClassType<UP, React.Component<UP> & { [K in FunctionProperties<I>]: I[K] }, React.ComponentClass<UP>>
 >(
-    component: C,
-    propHandlerHash: H,
-    methods?: M,
-): R;
+  component: C,
+  propHandlerHash: H,
+  methods?: M,
+): React.ComponentClass<UncontrollableProps<P, H>>;
 
 export default uncontrollable;
