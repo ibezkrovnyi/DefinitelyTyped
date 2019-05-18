@@ -1,0 +1,22 @@
+{
+  "files": [
+    "index.d.ts"
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "lib": [
+      "es6"
+    ],
+    "strict": true,
+    "baseUrl": "../",
+    "typeRoots": [
+      "../"
+    ],
+    "types": [],
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig",
+  "files": [
+    "index.d.ts",
+    "uncontrollable-tests.tsx"
+  ],
+  "compilerOptions": {
+    "baseUrl": "../../",
+    "typeRoots": [
+      "../../"
+    ]
+  }
+}
